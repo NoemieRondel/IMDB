@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction de la note des films sur IMDB</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+        }
+        p {
+            text-align: justify; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prédiction de la note des films sur IMDB</h1>
+    <p>
+        Bienvenue sur notre plateforme de prédiction de la note des films sur IMDB ! Pour obtenir une prédiction, veuillez suivre ces étapes simples :
+        <br>
+        1. Remplissez les champs ci-dessous avec les informations pertinentes sur le film que vous souhaitez prédire.
+        <br>
+        2. Une fois tous les champs remplis, cliquez sur le bouton "Prédire".
+        <br>
+        3. Notre système utilisera les données que vous avez fournies pour estimer la note du film sur la base des caractéristiques que vous avez spécifiées.
+        <br>
+        N'oubliez pas que plus vous fournissez d'informations précises et pertinentes, plus notre prédiction sera exacte.
+    </p>
+    <form action="/predict" method="post">
+        {% for feature in features %}
+            <label for="{{ feature }}">{{ feature }}</label>
+            <input type="text" id="{{ feature }}" name="{{ feature }}"><br>
+        {% endfor %}
+        <button type="submit">Prédire</button>
+    </form>
+</body>
+</html>
